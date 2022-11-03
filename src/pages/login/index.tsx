@@ -5,7 +5,7 @@ import { unstable_getServerSession } from "next-auth";
 import { getProviders, signIn } from "next-auth/react";
 import { authOptions } from "../api/auth/[...nextauth]";
 
-export default function Login({ providers }) {
+export default function Login({ providers }: { providers: any }) {
     return (
         <Layout title="Login">
             <Box>
@@ -14,7 +14,7 @@ export default function Login({ providers }) {
                     Please login before you continue...
                 </h1>
                 <>
-                    {Object.values(providers).map((provider) => (
+                    {Object.values(providers).map((provider: any) => (
                         <div key={provider.name}>
                             <button
                                 className=" border-white/10 border-2 rounded-full p-2 px-6 text-lg text-center w-full hover:bg-yellow-500/30 hover:border-yellow-500/50"
