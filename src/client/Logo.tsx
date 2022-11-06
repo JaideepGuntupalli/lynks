@@ -4,7 +4,7 @@ export default function Logo() {
     return (
         <a
             href="/"
-            className="font-bold font-dm text-2xl text-yellow-500 flex items-center gap-3"
+            className="font-bold font-dm text-3xl text-yellow-500 flex items-center gap-3"
         >
             <Image src={logo} alt="Logo of Lynks" width="40" />
             Lynks
