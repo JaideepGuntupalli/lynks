@@ -22,5 +22,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return;
     }
 
-    return res.redirect(data.url);
+    res.setHeader(
+        "Cache-Control",
+        "s-maxage=1000000000, stale-while-revalidate"
+    );
+
+    return res.json({ url: data.url });
 };
