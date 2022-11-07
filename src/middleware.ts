@@ -13,14 +13,13 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
             await fetch(`${req.nextUrl.origin}/api/get-url/${slug}`)
         ).json();
 
-        if (data.error) {
-            return new Response(data.error, { status: 404 });
-        }
-
         if (data.url) {
             return NextResponse.redirect(data.url);
         }
 
-        return;
+        req.nextUrl.searchParams.set("from", req.nextUrl.pathname);
+        req.nextUrl.pathname = "/";
+
+        return NextResponse.redirect(req.nextUrl);
     }
 }
